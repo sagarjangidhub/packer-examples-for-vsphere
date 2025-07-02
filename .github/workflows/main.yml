@@ -1,0 +1,41 @@
+name: CI for Stage 1 & 2
+
+on:
+  push:
+    branches:
+      - main # Or the branch you want to trigger this workflow on
+  pull_request:
+    branches:
+      - main # Or the branch you want to trigger this workflow on
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Stage 1 - Setup (Optional, replace with your actual setup)
+      run: |
+        echo "Running Stage 1 setup..."
+        # Add any commands here that are part of your Stage 1 setup
+        # For example, installing dependencies:
+        # npm install
+        # pip install -r requirements.txt
+        echo "Stage 1 complete!"
+
+    - name: Stage 2 - Echo Message
+      run: |
+        echo "Hello from Stage 2!"
+        # Add any other commands you want to run in Stage 2
+        echo "This is another message from Stage 2."
+
+    # You can add more stages here if needed
+    # - name: Stage 3 - Run Tests (Example)
+    #   run: |
+    #     echo "Running Stage 3 tests..."
+    #     # For example, running unit tests:
+    #     # npm test
+    #     # pytest
+    #     echo "Stage 3 complete!"
